@@ -4,7 +4,7 @@ const getMission = async (req, res) => {
   try {
     const doc = await MissionModel.findOne()
     if (!doc) return res.json(MissionModel.defaults)
-    res.json(doc)
+    res.json({ ...MissionModel.defaults, ...doc })
   } catch (e) {
     res.status(500).json({ message: 'Server error' })
   }

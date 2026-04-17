@@ -4,7 +4,7 @@ const getVision = async (req, res) => {
   try {
     const doc = await VisionModel.findOne()
     if (!doc) return res.json(VisionModel.defaults)
-    res.json(doc)
+    res.json({ ...VisionModel.defaults, ...doc })
   } catch (e) {
     res.status(500).json({ message: 'Server error' })
   }

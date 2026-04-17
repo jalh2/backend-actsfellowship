@@ -4,7 +4,7 @@ const getImpact = async (req, res) => {
   try {
     const doc = await ImpactModel.findOne()
     if (!doc) return res.json(ImpactModel.defaults)
-    res.json(doc)
+    res.json({ ...ImpactModel.defaults, ...doc })
   } catch (e) {
     res.status(500).json({ message: 'Server error' })
   }

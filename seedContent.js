@@ -51,22 +51,22 @@ const seedData = async () => {
   // 2. Vision Page Content
   const visionData = {
     title: 'Our Vision',
-    description: 'The vision is to reach out to leaders without formal pastoral or theological training, focusing on those teaching and preaching the word of God in challenged parts of the region.',
+    description: 'To ensure that millions of pastors and church leaders are biblically-trained by providing simple church planting, church administration, and leadership principles for a successful ministry. Our vision for sustainability and continuity is a 3-fold approach in every nation: Training, Prayer, and Rotational house fellowship among leaders — striving to fulfil the prayer of Jesus in John 17:20-21 "...that they may be one as we are one."',
     sections: [
       {
-        key: 'the-vision',
-        title: 'The Vision',
-        description: 'To reach out to leaders without formal pastoral or theological training, focusing on those teaching and preaching the word of God in challenged parts of the region. We believe every leader deserves access to quality biblical education regardless of their circumstances.'
+        key: 'biblical-training',
+        title: 'Biblical Training (1 Tim. 2:15)',
+        description: 'Replicating our 5-course biblical training module across nations, equipping every church leader with sound doctrine and practical ministry skills.'
       },
       {
-        key: 'our-mission',
-        title: 'Our Mission',
-        description: 'Following the Acts model, we select 12 church leaders in every nation and train them intensively over a four-year period in leadership and church growth principles. These leaders then train others in their communities, creating a multiplying effect of biblical leadership.'
+        key: 'prayer',
+        title: 'Prayer (1 Thess. 5:17)',
+        description: 'We believe in praying without ceasing. Every aspect of our ministry is undergirded by prayer, and we encourage all leaders we train to build communities of prayer.'
       },
       {
-        key: 'global-impact',
-        title: 'Global Impact',
-        description: 'From West Africa to East Africa, we are building a network of trained pastors and church leaders who are making a difference in their communities. Our three-fold approach includes: Training, Prayer fellowship, and Rotational house fellowship among leaders.'
+        key: 'house-fellowship',
+        title: 'Rotational House Fellowship',
+        description: 'We strive for unity among leaders through monthly rotational house fellowship gatherings — building relationships across denominations and backgrounds, fulfilling John 17:20-21.'
       }
     ],
     createdAt: now,
@@ -76,22 +76,22 @@ const seedData = async () => {
   // 3. Mission Page Content
   const missionData = {
     title: 'Our Mission',
-    description: 'Following the Acts model, we select 12 church leaders in every nation and train them intensively over a four-year period in leadership and church growth principles.',
+    description: 'The ACTS Fellowship exists to serve informal and nonformal training programs by providing a five-course biblical leadership training carefully crafted by our facilitators — empowering church leaders to plant, develop and sustain healthy biblical churches in their nations. According to global research, only 5% of all the pastors in the world have a formal qualification, and by 2050 the global church will need 9.7 million pastors. ACTS Fellowship exists to close that gap.',
     sections: [
       {
-        key: 'train-leaders',
-        title: 'Train Leaders',
-        description: 'We select 12 church leaders in every nation and provide intensive training over a four-year period in leadership and church growth principles.'
+        key: 'leadership-module',
+        title: 'Comprehensive 5-Course Training Module',
+        description: 'We develop and deliver a comprehensive 5-course biblical leadership training module to help raise and restore healthy churches, covering church planting, administration, pastoral care, leadership principles, and ministry sustainability.'
       },
       {
-        key: 'multiply-effect',
-        title: 'Multiply Impact',
-        description: 'These trained leaders then train others in their communities, creating a multiplying effect of biblical leadership throughout their nations.'
+        key: 'unity-body',
+        title: 'Promoting Unity in the Body of Christ',
+        description: 'We promote the UNITY of the BODY of CHRIST through monthly house-to-house fellowship and gift sharing amongst church leaders, building bonds across denominations and regions.'
       },
       {
-        key: 'unity-goal',
-        title: 'Foster Unity',
-        description: 'We strive to accomplish the prayer of Jesus in John 17:11 "...that they may be one as we are one" through prayer fellowship and rotational house fellowship among leaders.'
+        key: 'mutual-support',
+        title: 'A Platform for Mutual Support',
+        description: 'We provide a platform for church leaders to help one another in times of need, and we encourage and support replication of our training module so that the impact multiplies through every trained leader.'
       }
     ],
     createdAt: now,
@@ -101,18 +101,14 @@ const seedData = async () => {
   // 4. Impact Page Content
   const impactData = {
     title: 'Our Impact',
-    description: 'Transforming church leaders across Africa',
+    description: 'Transforming church leaders across Africa — by the grace of God, Acts Fellowship International has trained leaders in 7 nations with a total cumulative church membership of over 10,000 congregations.',
     stats: [
-      { value: '7', label: 'Countries', icon: 'globe' },
-      { value: '12+', label: 'Leaders Trained per Nation', icon: 'users' },
-      { value: '10,000+', label: 'Congregations Reached', icon: 'church' },
-      { value: '4', label: 'Years of Training', icon: 'calendar' }
+      { value: '7', label: 'Nations Reached' },
+      { value: '84+', label: 'Leaders Trained' },
+      { value: '10,000+', label: 'Congregations Impacted' },
+      { value: '2013', label: 'Year Founded' }
     ],
-    content: `Twelve church leaders have been trained in Liberia, Sierra Leone, Guinea, Uganda, Tanzania, Kenya, and Rwanda with a total cumulative church membership of 10,000 plus congregations by the grace of God.
-
-Each of the twelve church leaders we train in every nation represent varying sizes of congregations they lead and represent. So we instill and restore the health of the church by training their leaders because the bible states that "when a blind lead the blind, they end up into a ditch" (Mat.15:14). 
-
-A healthy and transformed leader results to a healthy and transformed church congregation.`,
+    content: 'Twelve church leaders have been trained in Liberia, Sierra Leone, Guinea, Uganda, Tanzania, Kenya, and Rwanda with a total cumulative church membership of 10,000 plus congregations by the grace of God.\n\nEach of the twelve church leaders we train in every nation represent varying sizes of congregations they lead and represent. So we instill and restore the health of the church by training their leaders because the Bible states that "when the blind lead the blind, they end up in a ditch" (Mat. 15:14).\n\nA healthy and transformed leader results in a healthy and transformed church congregation.',
     countries: ['Liberia', 'Sierra Leone', 'Guinea', 'Uganda', 'Tanzania', 'Kenya', 'Rwanda'],
     createdAt: now,
     updatedAt: now
@@ -379,35 +375,20 @@ A healthy and transformed leader results to a healthy and transformed church con
       console.log('✗ About content already exists, skipping...')
     }
 
-    // Seed Vision
+    // Seed Vision (merge to overwrite existing docs with corrected content)
     const visionRef = db.collection('visionContent').doc('main')
-    const visionDoc = await visionRef.get()
-    if (!visionDoc.exists) {
-      await visionRef.set(visionData)
-      console.log('✓ Vision content seeded')
-    } else {
-      console.log('✗ Vision content already exists, skipping...')
-    }
+    await visionRef.set(visionData, { merge: true })
+    console.log('✓ Vision content seeded/updated')
 
-    // Seed Mission
+    // Seed Mission (merge to overwrite existing docs with corrected content)
     const missionRef = db.collection('missionContent').doc('main')
-    const missionDoc = await missionRef.get()
-    if (!missionDoc.exists) {
-      await missionRef.set(missionData)
-      console.log('✓ Mission content seeded')
-    } else {
-      console.log('✗ Mission content already exists, skipping...')
-    }
+    await missionRef.set(missionData, { merge: true })
+    console.log('✓ Mission content seeded/updated')
 
-    // Seed Impact
+    // Seed Impact (merge to overwrite existing docs with corrected content)
     const impactRef = db.collection('impactContent').doc('main')
-    const impactDoc = await impactRef.get()
-    if (!impactDoc.exists) {
-      await impactRef.set(impactData)
-      console.log('✓ Impact content seeded')
-    } else {
-      console.log('✗ Impact content already exists, skipping...')
-    }
+    await impactRef.set(impactData, { merge: true })
+    console.log('✓ Impact content seeded/updated')
 
     // Seed Partnerships
     const partnershipsRef = db.collection('partnershipsContent').doc('main')
