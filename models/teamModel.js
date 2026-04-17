@@ -1,22 +1,35 @@
 const { db } = require('../config')
 
-const collection = db.collection('homeContent')
+const collection = db.collection('teamContent')
 const DOC_ID = 'main'
 
 const defaults = {
-  heroTitle: '',
-  heroDescription: '',
-  heroImages: [],
-  title: '',
+  title: 'Our Team',
   description: '',
-  cards: [],
-  stats: [],
-  statsTitle: '',
-  statsDescription: '',
-  missionSection: { title: '', description: '', bullets: [], videoUrl: '', ctaLabel: '', ctaLink: '' },
-  aboutSection: { title: '', description: '', image: '' },
-  fellowshipSection: { title: '', description: '', image: '' },
-  partnerSection: { title: '', description: '', ctaLabel: '', ctaLink: '' },
+  members: [
+    {
+      name: 'Pastor Robert Kinzel',
+      title: 'Facilitator',
+      image: '',
+      videoUrl: '',
+      bio: ''
+    },
+    {
+      name: 'Dr. Dan Hopkins',
+      title: 'Facilitator',
+      image: '',
+      videoUrl: '',
+      bio: ''
+    },
+    {
+      name: 'Bishop Andrew Gombay',
+      title: 'Coordinator',
+      image: '',
+      videoUrl: '',
+      bio: ''
+    }
+  ],
+  advisoryBoard: '',
   createdAt: null,
   updatedAt: null
 }

@@ -53,13 +53,12 @@ const remove = async (id) => {
 }
 
 const findAll = async (publishedOnly = false) => {
-  let query = collection
-  if (publishedOnly) {
-    query = collection.where('isPublished', '==', true)
-  }
-  const snapshot = await query.get()
+  const snapshot = await collection.get()
   const docs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  return docs.sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
+  const filteredDocs = publishedOnly
+    ? docs.filter(doc => doc.isPublished === true)
+    : docs
+  return filteredDocs.sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
 }
 
 module.exports = { collection, defaults, create, findById, findBySlug, findByIdOrSlug, update, remove, findAll }

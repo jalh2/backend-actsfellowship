@@ -1,22 +1,28 @@
 const { db } = require('../config')
 
-const collection = db.collection('homeContent')
+const collection = db.collection('partnerWithUsContent')
 const DOC_ID = 'main'
 
 const defaults = {
-  heroTitle: '',
-  heroDescription: '',
-  heroImages: [],
-  title: '',
+  title: 'Partner With Us',
   description: '',
-  cards: [],
-  stats: [],
-  statsTitle: '',
-  statsDescription: '',
-  missionSection: { title: '', description: '', bullets: [], videoUrl: '', ctaLabel: '', ctaLink: '' },
-  aboutSection: { title: '', description: '', image: '' },
-  fellowshipSection: { title: '', description: '', image: '' },
-  partnerSection: { title: '', description: '', ctaLabel: '', ctaLink: '' },
+  waysToPartner: [
+    {
+      title: 'Pray',
+      description: 'Join us in prayer for the ministry and the leaders we train.',
+      iconType: 'pray'
+    },
+    {
+      title: 'Give',
+      description: 'Your financial support helps us train more church leaders.',
+      iconType: 'give'
+    },
+    {
+      title: 'Volunteer',
+      description: 'Share your skills and time to support our mission.',
+      iconType: 'volunteer'
+    }
+  ],
   createdAt: null,
   updatedAt: null
 }

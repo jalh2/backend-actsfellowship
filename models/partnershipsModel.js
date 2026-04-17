@@ -1,22 +1,12 @@
 const { db } = require('../config')
 
-const collection = db.collection('homeContent')
+const collection = db.collection('partnershipsContent')
 const DOC_ID = 'main'
 
 const defaults = {
-  heroTitle: '',
-  heroDescription: '',
-  heroImages: [],
-  title: '',
+  title: 'Our Partnerships',
   description: '',
-  cards: [],
-  stats: [],
-  statsTitle: '',
-  statsDescription: '',
-  missionSection: { title: '', description: '', bullets: [], videoUrl: '', ctaLabel: '', ctaLink: '' },
-  aboutSection: { title: '', description: '', image: '' },
-  fellowshipSection: { title: '', description: '', image: '' },
-  partnerSection: { title: '', description: '', ctaLabel: '', ctaLink: '' },
+  partners: [],
   createdAt: null,
   updatedAt: null
 }

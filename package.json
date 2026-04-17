@@ -8,6 +8,7 @@
     "dev": "nodemon server.js",
     "seed": "node seeds/seedAdmin.js",
     "seed:content": "node seeds/seedContent.js",
+    "seed:resources": "node seeds/seedResourcesFromVFM.js",
     "seed:all": "node seeds/seedAdmin.js && node seeds/seedContent.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

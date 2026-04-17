@@ -1,22 +1,18 @@
 const { db } = require('../config')
 
-const collection = db.collection('homeContent')
+const collection = db.collection('impactContent')
 const DOC_ID = 'main'
 
 const defaults = {
-  heroTitle: '',
-  heroDescription: '',
-  heroImages: [],
-  title: '',
+  title: 'Our Impact',
   description: '',
-  cards: [],
-  stats: [],
-  statsTitle: '',
-  statsDescription: '',
-  missionSection: { title: '', description: '', bullets: [], videoUrl: '', ctaLabel: '', ctaLink: '' },
-  aboutSection: { title: '', description: '', image: '' },
-  fellowshipSection: { title: '', description: '', image: '' },
-  partnerSection: { title: '', description: '', ctaLabel: '', ctaLink: '' },
+  stats: [
+    { label: 'Countries', value: '7' },
+    { label: 'Church Leaders Trained', value: '12+' },
+    { label: 'Congregations Reached', value: '10,000+' }
+  ],
+  content: '',
+  countries: ['Liberia', 'Sierra Leone', 'Guinea', 'Uganda', 'Tanzania', 'Kenya', 'Rwanda'],
   createdAt: null,
   updatedAt: null
 }

@@ -8,12 +8,12 @@ router.get('/', listPages)
 router.get('/:idOrSlug', getPage)
 
 // Admin/SuperAdmin
-router.post('/', createPage)
-router.put('/:id', updatePage)
-router.delete('/:id', deletePage)
+router.post('/', requireAuth, requireRole(['superAdmin', 'admin']), createPage)
+router.put('/:id', requireAuth, requireRole(['superAdmin', 'admin']), updatePage)
+router.delete('/:id', requireAuth, requireRole(['superAdmin', 'admin']), deletePage)
 
-// Image operations (no auth)
-router.post('/:id/image', addPageImage)
-router.delete('/:id/image/:idx', deletePageImage)
+// Image operations
+router.post('/:id/image', requireAuth, requireRole(['superAdmin', 'admin']), addPageImage)
+router.delete('/:id/image/:idx', requireAuth, requireRole(['superAdmin', 'admin']), deletePageImage)
 
 module.exports = router
