@@ -19,6 +19,7 @@ const teamRoutes = require('./routes/teamRoutes')
 const partnerWithUsRoutes = require('./routes/partnerWithUsRoutes')
 const enrollGroupRoutes = require('./routes/enrollGroupRoutes')
 const donateRoutes = require('./routes/donateRoutes')
+const testimonialsRoutes = require('./routes/testimonialsRoutes')
 
 const app = express()
 
@@ -68,6 +69,7 @@ app.use('/api/team', teamRoutes)
 app.use('/api/partner-with-us', partnerWithUsRoutes)
 app.use('/api/enroll-group', enrollGroupRoutes)
 app.use('/api/donate', donateRoutes)
+app.use('/api/testimonials', testimonialsRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
